@@ -26,10 +26,13 @@ function getPlayerMove(move) {
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
     //return /* Your Expression */;
-    console.log("Player throws " + move);
-    if (move){
+    var move = move.toLowerCase();
+    // console.log("Player throws " + move);
+    if (move === 'rock' || move === 'paper' || move === 'scissors'){
+        console.log("Player throws " + move);
         return move;
     } else {
+        console.log("INVALID MOVE!!! Come on dude, just type rock, paper, or scissors");
         getInput();
     }
 
@@ -54,10 +57,13 @@ function getWinner(playerMove,computerMove) {
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     /* YOUR CODE HERE */
-
-    if (playerMove === computerMove){
+    
+    if (playerMove === undefined){
         winner = 'tie';
-        console.log("Tie! Aw shucks, play again")
+        console.log("You still didn't put in an acceptable answer! Disappointing, try again.");
+    } else if (playerMove === computerMove || playerMove === undefined){
+        winner = 'tie';
+        console.log("Tie! Aw shucks, play again");
     } else if (playerMove === 'rock' && computerMove === 'paper'|| playerMove === 'paper' && computerMove === 'scissors'|| playerMove === 'paper' && computerMove === 'scissors'){
         winner = 'computer';
         console.log(winner.toUpperCase() + " Wins");
@@ -65,6 +71,7 @@ function getWinner(playerMove,computerMove) {
         winner = 'player';
         console.log(winner.toUpperCase() + " Wins");
     }
+
     return winner;
 }
 
