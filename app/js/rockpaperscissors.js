@@ -26,12 +26,13 @@ function getPlayerMove(move) {
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
     //return /* Your Expression */;
-
+    console.log("Player throws " + move);
     if (move){
         return move;
     } else {
         getInput();
     }
+
 }
 
 function getComputerMove(move) {
@@ -39,13 +40,12 @@ function getComputerMove(move) {
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
     //return /* Your Expression */;
-
+    console.log("Computer throws " + move);
     if (move){
         return move;
     } else {
         randomPlay();
     }
-
 }
 
 function getWinner(playerMove,computerMove) {
@@ -60,10 +60,10 @@ function getWinner(playerMove,computerMove) {
         console.log("Tie! Aw shucks, play again")
     } else if (playerMove === 'rock' && computerMove === 'paper'|| playerMove === 'paper' && computerMove === 'scissors'|| playerMove === 'paper' && computerMove === 'scissors'){
         winner = 'computer';
-        console.log(winner + "Wins");
+        console.log(winner.toUpperCase() + " Wins");
     } else {
         winner = 'player';
-        console.log(winner + "Wins");
+        console.log(winner.toUpperCase() + " Wins");
     }
     return winner;
 }
