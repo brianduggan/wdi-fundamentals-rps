@@ -49,7 +49,10 @@ function getComputerMove(move) {
 }
 
 function getWinner(playerMove,computerMove) {
-    var winner;
+    var winner,
+        winnerState = function(){
+          console.log(winner.toUpperCase() + " Wins this round.");
+        };
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
@@ -66,10 +69,10 @@ function getWinner(playerMove,computerMove) {
         console.log("Tie! Aw shucks, play again");
     } else if (playerMove === 'rock' && computerMove === 'paper'|| playerMove === 'paper' && computerMove === 'scissors'|| playerMove === 'paper' && computerMove === 'scissors'){
         winner = 'computer';
-        console.log(winner.toUpperCase() + " Wins");
+        winnerState();
     } else {
         winner = 'player';
-        console.log(winner.toUpperCase() + " Wins");
+        winnerState();
     }
 
     return winner;
@@ -90,13 +93,13 @@ function playToFive() {
             computerWins += 1;
         }
         console.log ("The score is " + playerWins + " - " + computerWins);
-        console.log (" ------------ ")
+        console.log (" ------------ ");
     }
 
     if (playerWins == 5){
-        console.log("YOU WON! NICE GOING DUDE... but I mean it is just luck or whatever.")
+        console.log("YOU WON! NICE GOING DUDE... but I mean it is just luck or whatever.");
     } else {
-        console.log("THE COMPUTER HAS WON THE GAME!!!!!! SORRY DUDE")
+        console.log("THE COMPUTER HAS WON THE GAME!!!!!! SORRY DUDE");
     }
 
     return [playerWins, computerWins];
